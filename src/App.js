@@ -3,8 +3,9 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
+//import BodyImags from "./components/BodyImags";
 import Wrapper from "./components/Wrapper";
-import picture from "./body.json";
+import picture from "./pictures.json";
 
 
 class App extends Component {
@@ -42,7 +43,7 @@ class App extends Component {
   }
   render(){
     return (
-      <div>
+      <div className="App">
         <Navbar 
         total={this.state.score}
                goal={12}
@@ -58,7 +59,9 @@ class App extends Component {
               key={pic.id}
               image={pic.image}
             />
+            
           ))}
+          {/* <BodyImags/> */}
         </Wrapper>
         </div>
         <Footer/>
