@@ -4,39 +4,39 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
 import Wrapper from "./components/Wrapper";
-import pups from "./body.json";
+import picture from "./body.json";
 
 
 class App extends Component {
   state = {
-    pups,
-    clickedPuppyIds: [],
+    picture,
+    clickedImageIds: [],
     score: 0,
     goal: 12,
     status: ""
   };
 
-  //shuffle the pup cards in the browser when clicked
+  //shuffle the img cards in the browser when clicked
   shuffleScoreCard = id => {
-    let clickedPuppyIds = this.state.clickedPuppyIds;
+    let clickedImageIds = this.state.clickedImageIds;
 
-    if(clickedPuppyIds.includes(id)){
-      this.setState({ clickedPuppyIds: [], score: 0, status:  "Game Over! You lost. Click to play again!" });
+    if(clickedImageIds.includes(id)){
+      this.setState({ clickedImageIds: [], score: 0, status:  "Game Over! You lost. Click to play again!" });
       return;
     }else{
-      clickedPuppyIds.push(id)
+      clickedImageIds.push(id)
 
-      if(clickedPuppyIds.length === 12){
+      if(clickedImageIds.length === 12){
         this.setState({score: 12, status: "You Won! Great Job, Smartie! Click to play again!", clickedPuppyIds: []});
         console.log('You Win');
         return;
       }
 
-      this.setState({ pups, clickedPuppyIds, score: clickedPuppyIds.length, status: " " });
+      this.setState({ picture, clickedImageIds, score: clickedImageIds.length, status: " " });
 
-      for (let i = pups.length - 1; i > 0; i--) {
+      for (let i = picture.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-        [pups[i], pups[j]] = [pups[j], pups[i]];
+        [picture[i], picture[j]] = [picture[j], picture[i]];
       }
     }
   }
@@ -51,12 +51,12 @@ class App extends Component {
         <Header />
         <div className="container">
         <Wrapper>
-          {this.state.pups.map(puppy => (
+          {this.state.picture.map(pic => (
             <Body
               shuffleScoreCard={this.shuffleScoreCard}
-              id={puppy.id}
-              key={puppy.id}
-              image={puppy.image}
+              id={pic.id}
+              key={pic.id}
+              image={pic.image}
             />
           ))}
         </Wrapper>
