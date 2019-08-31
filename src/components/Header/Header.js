@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Header.css';
 
 class Header extends Component {
 
@@ -6,7 +7,6 @@ class Header extends Component {
         return(
             <div className="Header" style={{"height": 100}}>
                 <h1>Clicky Game</h1>
-                <h2>Click on image</h2>
             </div>
         )
     }

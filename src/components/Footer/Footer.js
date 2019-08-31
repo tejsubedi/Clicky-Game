@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Footer.css';
 
 class Footer extends Component {
 
@@ -7,7 +8,7 @@ class Footer extends Component {
             
                 <div id="footer-page">
                     &copy;
-                    Tej Subedi
+                    For Study Purpose @ UofT by Tej Subedi
                 </div>
             
                 )
